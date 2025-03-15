@@ -1,0 +1,2 @@
+1) Diagram klas. ✔
+2) Projekt mvc + repozytorium.
