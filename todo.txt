@@ -1,3 +1,4 @@
 1) Diagram klas. ✔
 2) Projekt mvc + repozytorium. ✔
-3) Klasy db context'u.
+3) Klasy db context'u. ✔
+4) Db Seeder. ✔

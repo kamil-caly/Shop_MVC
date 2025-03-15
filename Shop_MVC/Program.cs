@@ -1,9 +1,30 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
+using Shop_MVC.Entities;
+using Shop_MVC.Entities.Settings;
+using Shop_MVC.Seeders;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Konfiguracja
+var mongoDBSettings = builder.Configuration.GetSection("MongoDbSettings").Get<MongoDbSettings>();
+builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
+
+builder.Services.AddDbContext<ShopDbContext>(options =>
+options.UseMongoDB(mongoDBSettings?.ConnectionString ?? "", mongoDBSettings?.DatabaseName ?? ""));
+
+builder.Services.AddScoped<ShopSeeder>();
+
 var app = builder.Build();
+
+var scope = app.Services.CreateScope();
+
+// Data Seed
+var seeder = scope.ServiceProvider.GetRequiredService<ShopSeeder>();
+seeder.Seed();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

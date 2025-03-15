@@ -2,7 +2,7 @@
 {
     public enum Company
     {
-        Nikem,
+        Nike,
         Adidas,
         Vans,
         Puma

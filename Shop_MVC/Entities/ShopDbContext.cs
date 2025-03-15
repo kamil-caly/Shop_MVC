@@ -14,6 +14,7 @@ namespace Shop_MVC.Entities
 
         public ShopDbContext(DbContextOptions options) : base(options)
         {
+            this.Database.AutoTransactionBehavior = AutoTransactionBehavior.Never;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
