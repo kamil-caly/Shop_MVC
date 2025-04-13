@@ -1,45 +1,31 @@
-﻿@model IEnumerable<Shop_MVC.Entities.Product>
+﻿@model Shop_MVC.Models.Products.ProductsViewModel
 
 @{
     ViewData["Title"] = "Product";
 }
 
-<div class="d-flex product-container">
+<div class="d-flex product-container navbar-margin">
     <div class="d-flex flex-column align-content-center border-end border-2 left-panel flex-wrap" style="border-color: lightgray">
+        
         @* Kategoria *@
         <h3 class="mt-4">Category</h3>
         <div class="mt-1" style="font-size: large">
-            <div>
-                <input class="form-check-input my-radio" type="radio" name="categoryRadio" checked>
-                <label>
-                    All
-                </label>
-            </div>
-            <div>
-                <input class="form-check-input my-radio" type="radio" name="categoryRadio">
-                <label>
-                    Sneakers
-                </label>
-            </div>
-            <div>
-                <input class="form-check-input my-radio" type="radio" name="categoryRadio">
-                <label>
-                    Flats
-                </label>
-            </div>
-            <div>
-                <input class="form-check-input my-radio" type="radio" name="categoryRadio">
-                <label>
-                    Sandals
-                </label>
-            </div>
-            <div>
-                <input class="form-check-input my-radio" type="radio" name="categoryRadio">
-                <label>
-                    Heels
-                </label>
-            </div>
-        </div>
+                   <div>
+                       <input class="form-check-input my-radio" type="radio" name="categoryRadio" checked>
+                       <label>
+                           All
+                       </label>
+                   </div> 
+                   @foreach (var category in Model.Categories)
+                   {
+                       <div>
+                           <input class="form-check-input my-radio" type="radio" name="categoryRadio">
+                           <label>
+                               @category
+                           </label>
+                       </div>
+                   }
+               </div>
 
         @* Firma *@
         <h3 class="mt-4">Company</h3>
@@ -104,12 +90,13 @@
                 <div class="border border-1 color-square-div" style="background: white"></div>
             </div>
         </div>
+
     </div>
 
     <div class="mt-4 mb-5 mx-5 w-100">
         <input type="email" class="form-control w-25" placeholder="Enter your search shoes">
         <div class="product-grid">
-            @foreach (var product in Model)
+            @foreach (var product in Model.Products)
             {
                 <div class="product-cart">
                     <img src="@product.Img" alt="@product.Name" class="product-image" />
@@ -128,23 +115,4 @@
         </div>
     </div>
 </div>
-
-
-@* <div class="filters">
-   
-
-<div class="product-grid">
-    @foreach (var product in Model)
-    {
-        <div class="product-card">
-            <img src="@product.Img" alt="@product.Name" class="product-image" />
-            <h2>@product.Name</h2>
-            <p>Price: $@product.Price</p>
-            <p>Color: @product.Color</p>
-            <p>Brand: @product.Company</p>
-            <p>Stock: @product.Quantity</p>
-            <button>Add to Cart</button>
-        </div>
-    }
-</div> *@
 

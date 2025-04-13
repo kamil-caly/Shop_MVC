@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Shop_MVC.Entities.Enums;
+using Shop_MVC.Models.Products;
+using Shop_MVC.Services;
 using Shop_MVC.Services.Interfaces;
 
 namespace Shop_MVC.Controllers
@@ -13,8 +16,19 @@ namespace Shop_MVC.Controllers
 
         public IActionResult Index()
         {
-            var products = productService.GetProducts();
-            return View(products);
+            var categories = Enum.GetValues(typeof(Category)).Cast<Category>();
+            var companies = Enum.GetValues(typeof(Company)).Cast<Company>();
+            var colors = Enum.GetValues(typeof(Color)).Cast<Color>();
+
+            var model = new ProductsViewModel
+            {
+                Products = productService.GetProducts(),
+                Categories = categories,
+                Companies = companies,
+                Colors = colors
+            };
+
+            return View(model);
         }
     }
 }

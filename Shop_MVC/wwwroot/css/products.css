@@ -3,6 +3,11 @@
 }
 
 .left-panel {
+    position: sticky;
+    top: 57px; 
+    height: calc(100vh - 57px); 
+    overflow-y: auto;
+    z-index: 10;
     width: 350px;
 }
 

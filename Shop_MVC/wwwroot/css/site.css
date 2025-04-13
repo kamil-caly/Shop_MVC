@@ -19,9 +19,14 @@ html {
 
 .main {
     min-height: calc(100vh - 117px);
-    padding-top: 57px
+    margin-top: 57px;
 }
 
+/*.navbar-margin {
+    margin-top: 57px
+}*/
+
+/* ============== inputs ============== */
 .my-radio {
     border: none;
     background-color: lightgray;
