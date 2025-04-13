@@ -17,6 +17,12 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+.main {
+    min-height: calc(100vh - 117px);
+    padding-top: 57px
+}
+
+.my-radio {
+    border: none;
+    background-color: lightgray;
 }

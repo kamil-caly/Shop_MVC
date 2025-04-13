@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Shop_MVC.Entities;
 using Shop_MVC.Entities.Settings;
 using Shop_MVC.Seeders;
+using Shop_MVC.Services;
+using Shop_MVC.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +19,7 @@ builder.Services.AddDbContext<ShopDbContext>(options =>
 options.UseMongoDB(mongoDBSettings?.ConnectionString ?? "", mongoDBSettings?.DatabaseName ?? ""));
 
 builder.Services.AddScoped<ShopSeeder>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 

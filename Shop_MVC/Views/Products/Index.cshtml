@@ -1,0 +1,150 @@
+﻿@model IEnumerable<Shop_MVC.Entities.Product>
+
+@{
+    ViewData["Title"] = "Product";
+}
+
+<div class="d-flex product-container">
+    <div class="d-flex flex-column align-content-center border-end border-2 left-panel flex-wrap" style="border-color: lightgray">
+        @* Kategoria *@
+        <h3 class="mt-4">Category</h3>
+        <div class="mt-1" style="font-size: large">
+            <div>
+                <input class="form-check-input my-radio" type="radio" name="categoryRadio" checked>
+                <label>
+                    All
+                </label>
+            </div>
+            <div>
+                <input class="form-check-input my-radio" type="radio" name="categoryRadio">
+                <label>
+                    Sneakers
+                </label>
+            </div>
+            <div>
+                <input class="form-check-input my-radio" type="radio" name="categoryRadio">
+                <label>
+                    Flats
+                </label>
+            </div>
+            <div>
+                <input class="form-check-input my-radio" type="radio" name="categoryRadio">
+                <label>
+                    Sandals
+                </label>
+            </div>
+            <div>
+                <input class="form-check-input my-radio" type="radio" name="categoryRadio">
+                <label>
+                    Heels
+                </label>
+            </div>
+        </div>
+
+        @* Firma *@
+        <h3 class="mt-4">Company</h3>
+        <div class="mt-1" style="font-size: large">
+            <div>
+                <input class="form-check-input my-radio" type="radio" name="companyRadio" checked>
+                <label>
+                    All
+                </label>
+            </div>
+            <div>
+                <input class="form-check-input my-radio" type="radio" name="companyRadio">
+                <label>
+                    Nike
+                </label>
+            </div>
+            <div>
+                <input class="form-check-input my-radio" type="radio" name="companyRadio">
+                <label>
+                    Addidas
+                </label>
+            </div>
+            <div>
+                <input class="form-check-input my-radio" type="radio" name="companyRadio">
+                <label>
+                    Vans
+                </label>
+            </div>
+            <div>
+                <input class="form-check-input my-radio" type="radio" name="companyRadio">
+                <label>
+                    Puma
+                </label>
+            </div>
+        </div>
+
+        @* Kolor *@
+        <h3 class="mt-4">Colors</h3>
+        <div class="mt-1" style="font-size: large">
+            <div class="d-flex">
+                <input class="form-check-input my-radio me-1" type="radio" name="colorRadio" checked>
+                <div class="border border-1 color-square-div" style="background: linear-gradient(to right, black, blue, red, green, white)"></div>
+            </div>
+            <div class="d-flex">
+                <input class="form-check-input my-radio me-1" type="radio" name="colorRadio">
+                <div class="border border-1 color-square-div" style="background: black"></div>
+            </div>
+            <div class="d-flex">
+                <input class="form-check-input my-radio me-1" type="radio" name="colorRadio">
+                <div class="border border-1 color-square-div" style="background: blue"></div>
+            </div>
+            <div class="d-flex">
+                <input class="form-check-input my-radio me-1" type="radio" name="colorRadio">
+                <div class="border border-1 color-square-div" style="background: red"></div>
+            </div>
+            <div class="d-flex">
+                <input class="form-check-input my-radio me-1" type="radio" name="colorRadio">
+                <div class="border border-1 color-square-div" style="background: green"></div>
+            </div>
+            <div class="d-flex">
+                <input class="form-check-input my-radio me-1" type="radio" name="colorRadio">
+                <div class="border border-1 color-square-div" style="background: white"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 mb-5 mx-5 w-100">
+        <input type="email" class="form-control w-25" placeholder="Enter your search shoes">
+        <div class="product-grid">
+            @foreach (var product in Model)
+            {
+                <div class="product-cart">
+                    <img src="@product.Img" alt="@product.Name" class="product-image" />
+                    <h5 style="text-align: center">@product.Name</h5>
+                    <h5 class="text-center fw-bold">$@product.Price</h5>
+                    <div class="product-cart-quantity-color">
+                        <div class="d-flex me-2">
+                            <div class="me-1">Left:</div>
+                            <div class="fw-bold">@product.Quantity</div>
+                        </div>
+                        <div class="border border-1 color-square-div" style="background-color: @product.Color;"></div>
+                    </div>
+                    <button class="m-3 w-50 align-self-center btn btn-primary">Add to Cart</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@* <div class="filters">
+   
+
+<div class="product-grid">
+    @foreach (var product in Model)
+    {
+        <div class="product-card">
+            <img src="@product.Img" alt="@product.Name" class="product-image" />
+            <h2>@product.Name</h2>
+            <p>Price: $@product.Price</p>
+            <p>Color: @product.Color</p>
+            <p>Brand: @product.Company</p>
+            <p>Stock: @product.Quantity</p>
+            <button>Add to Cart</button>
+        </div>
+    }
+</div> *@
+
