@@ -10,22 +10,22 @@
         @* Kategoria *@
         <h3 class="mt-4">Category</h3>
         <div class="mt-1" style="font-size: large">
-                   <div>
-                       <input class="form-check-input my-radio" type="radio" name="categoryRadio" checked>
-                       <label>
-                           All
-                       </label>
-                   </div> 
-                   @foreach (var category in Model.Categories)
-                   {
-                       <div>
-                           <input class="form-check-input my-radio" type="radio" name="categoryRadio">
-                           <label>
-                               @category
-                           </label>
-                       </div>
-                   }
-               </div>
+            <div>
+                <input class="form-check-input my-radio" type="radio" name="categoryRadio" checked>
+                <label>
+                    All
+                </label>
+            </div> 
+            @foreach (var category in Model.Categories)
+            {
+                <div>
+                    <input class="form-check-input my-radio" type="radio" name="categoryRadio">
+                    <label>
+                        @category
+                    </label>
+                </div>
+            }
+        </div>
 
         @* Firma *@
         <h3 class="mt-4">Company</h3>
@@ -36,30 +36,15 @@
                     All
                 </label>
             </div>
-            <div>
-                <input class="form-check-input my-radio" type="radio" name="companyRadio">
-                <label>
-                    Nike
-                </label>
-            </div>
-            <div>
-                <input class="form-check-input my-radio" type="radio" name="companyRadio">
-                <label>
-                    Addidas
-                </label>
-            </div>
-            <div>
-                <input class="form-check-input my-radio" type="radio" name="companyRadio">
-                <label>
-                    Vans
-                </label>
-            </div>
-            <div>
-                <input class="form-check-input my-radio" type="radio" name="companyRadio">
-                <label>
-                    Puma
-                </label>
-            </div>
+            @foreach (var company in Model.Companies)
+            {
+                <div>
+                    <input class="form-check-input my-radio" type="radio" name="companyRadio">
+                    <label>
+                        @company
+                    </label>
+                </div>
+            }
         </div>
 
         @* Kolor *@
@@ -69,26 +54,13 @@
                 <input class="form-check-input my-radio me-1" type="radio" name="colorRadio" checked>
                 <div class="border border-1 color-square-div" style="background: linear-gradient(to right, black, blue, red, green, white)"></div>
             </div>
-            <div class="d-flex">
-                <input class="form-check-input my-radio me-1" type="radio" name="colorRadio">
-                <div class="border border-1 color-square-div" style="background: black"></div>
-            </div>
-            <div class="d-flex">
-                <input class="form-check-input my-radio me-1" type="radio" name="colorRadio">
-                <div class="border border-1 color-square-div" style="background: blue"></div>
-            </div>
-            <div class="d-flex">
-                <input class="form-check-input my-radio me-1" type="radio" name="colorRadio">
-                <div class="border border-1 color-square-div" style="background: red"></div>
-            </div>
-            <div class="d-flex">
-                <input class="form-check-input my-radio me-1" type="radio" name="colorRadio">
-                <div class="border border-1 color-square-div" style="background: green"></div>
-            </div>
-            <div class="d-flex">
-                <input class="form-check-input my-radio me-1" type="radio" name="colorRadio">
-                <div class="border border-1 color-square-div" style="background: white"></div>
-            </div>
+            @foreach (var color in Model.Colors)
+            {
+                <div class="d-flex">
+                    <input class="form-check-input my-radio me-1" type="radio" name="colorRadio">
+                    <div class="border border-1 color-square-div" style="background: @color"></div>
+                </div>
+            }
         </div>
 
     </div>
