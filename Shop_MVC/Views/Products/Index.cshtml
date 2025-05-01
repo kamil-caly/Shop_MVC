@@ -31,7 +31,7 @@
         <h3 class="mt-4">Company</h3>
         <div class="mt-1" style="font-size: large">
             <div>
-                <input class="form-check-input my-radio" type="radio" name="companyRadio" checked>
+                <input class="form-check-input my-radio" type="radio" name="companyRadio" checked value="All">
                 <label>
                     All
                 </label>
@@ -39,7 +39,7 @@
             @foreach (var company in Model.Companies)
             {
                 <div>
-                    <input class="form-check-input my-radio" type="radio" name="companyRadio">
+                    <input class="form-check-input my-radio" type="radio" name="companyRadio" value="@company">
                     <label>
                         @company
                     </label>
@@ -51,13 +51,13 @@
         <h3 class="mt-4">Colors</h3>
         <div class="mt-1" style="font-size: large">
             <div class="d-flex">
-                <input class="form-check-input my-radio me-1" type="radio" name="colorRadio" checked>
+                <input class="form-check-input my-radio me-1" type="radio" name="colorRadio" checked value="All">
                 <div class="border border-1 color-square-div" style="background: linear-gradient(to right, black, blue, red, green, white)"></div>
             </div>
             @foreach (var color in Model.Colors)
             {
                 <div class="d-flex">
-                    <input class="form-check-input my-radio me-1" type="radio" name="colorRadio">
+                    <input class="form-check-input my-radio me-1" type="radio" name="colorRadio" value="@color">
                     <div class="border border-1 color-square-div" style="background: @color"></div>
                 </div>
             }

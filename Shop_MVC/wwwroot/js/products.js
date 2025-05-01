@@ -1,13 +1,13 @@
 ﻿function collectFilter() {
     debugger;
     const category = $('input[name="categoryRadio"]:checked').val();
-    //const company = $('input[name="companyRadio"]:checked').val();
-    //const color = $('input[name="colorRadio"]:checked').val();
+    const company = $('input[name="companyRadio"]:checked').val();
+    const color = $('input[name="colorRadio"]:checked').val();
 
     return {
         Category: category,
-        //Company: company === "All" ? null : company,
-        //Color: color === "All" ? null : color
+        Company: company,
+        Color: color
     };
 }
 

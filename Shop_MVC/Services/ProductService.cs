@@ -33,6 +33,18 @@ namespace Shop_MVC.Services
                     query = query.Where(p => p.Category == parsedCategory);
             }
 
+            if (!string.IsNullOrEmpty(filter.Company) && filter.Company != "All")
+            {
+                if (Enum.TryParse<Company>(filter.Company, out var parsedCompany))
+                    query = query.Where(p => p.Company == parsedCompany);
+            }
+
+            if (!string.IsNullOrEmpty(filter.Color) && filter.Color != "All")
+            {
+                if (Enum.TryParse<Color>(filter.Color, out var parsedColor))
+                    query = query.Where(p => p.Color == parsedColor);
+            }
+
             return query.ToList();
         }
     }
