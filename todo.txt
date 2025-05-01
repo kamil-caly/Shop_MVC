@@ -4,4 +4,5 @@
 4) Db Seeder. ✔
 5) Wyświetlanie produktów (zakładka Products). ✔
 6) Filtrowanie produktów po kategorii (radioBtn). ✔
-7) Filtrowanie produktów po marce i kolorze (radioBtn).
+7) Filtrowanie produktów po marce i kolorze (radioBtn). ✔
+8) Filtrowanie na podstawie tekstu. ✔

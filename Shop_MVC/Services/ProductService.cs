@@ -27,22 +27,28 @@ namespace Shop_MVC.Services
 
             var query = dbCtx.Products.AsQueryable();
 
-            if (!string.IsNullOrEmpty(filter.Category) && filter.Category != "All")
+            // category radioBtn
+            if (filter.Category != null)
             {
-                if (Enum.TryParse<Category>(filter.Category, out var parsedCategory))
-                    query = query.Where(p => p.Category == parsedCategory);
+                query = query.Where(p => p.Category == filter.Category);
             }
 
-            if (!string.IsNullOrEmpty(filter.Company) && filter.Company != "All")
+            // company radioBtn
+            if (filter.Company != null)
             {
-                if (Enum.TryParse<Company>(filter.Company, out var parsedCompany))
-                    query = query.Where(p => p.Company == parsedCompany);
+                query = query.Where(p => p.Company == filter.Company);
             }
 
-            if (!string.IsNullOrEmpty(filter.Color) && filter.Color != "All")
+            // color radioBtn
+            if (filter.Color != null)
             {
-                if (Enum.TryParse<Color>(filter.Color, out var parsedColor))
-                    query = query.Where(p => p.Color == parsedColor);
+                query = query.Where(p => p.Color == filter.Color);
+            }
+
+            // searchText input
+            if (!string.IsNullOrEmpty(filter.SearchText))
+            {
+                query = query.Where(q => q.Name.ToLower().Contains(filter.SearchText.ToLower()));
             }
 
             return query.ToList();

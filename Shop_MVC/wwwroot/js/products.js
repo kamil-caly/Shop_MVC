@@ -1,14 +1,18 @@
 ﻿function collectFilter() {
-    debugger;
     const category = $('input[name="categoryRadio"]:checked').val();
     const company = $('input[name="companyRadio"]:checked').val();
     const color = $('input[name="colorRadio"]:checked').val();
 
-    return {
-        Category: category,
-        Company: company,
-        Color: color
+    const searchTxt = $('input#searchTextId').val();
+
+    let result = {
+        SearchText: searchTxt
     };
+    if (category != 'All') result.Category = Number(category);
+    if (company != 'All') result.Company = Number(company);
+    if (color != 'All') result.Color = Number(color);
+
+    return result;
 }
 
 function updateProducts() {
@@ -31,6 +35,10 @@ function updateProducts() {
 
 $(function () {
     $('input[type=radio]').on('change', function () {
+        updateProducts();
+    });
+
+    $('input#searchTextId').on('input', function () {
         updateProducts();
     });
 });

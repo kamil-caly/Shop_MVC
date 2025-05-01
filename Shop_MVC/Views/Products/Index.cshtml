@@ -19,7 +19,7 @@
             @foreach (var category in Model.Categories)
             {
                 <div>
-                    <input class="form-check-input my-radio" type="radio" name="categoryRadio" value="@category">
+                    <input class="form-check-input my-radio" type="radio" name="categoryRadio" value="@((int)category)">
                     <label>
                         @category
                     </label>
@@ -39,7 +39,7 @@
             @foreach (var company in Model.Companies)
             {
                 <div>
-                    <input class="form-check-input my-radio" type="radio" name="companyRadio" value="@company">
+                    <input class="form-check-input my-radio" type="radio" name="companyRadio" value="@((int)company)">
                     <label>
                         @company
                     </label>
@@ -57,7 +57,7 @@
             @foreach (var color in Model.Colors)
             {
                 <div class="d-flex">
-                    <input class="form-check-input my-radio me-1" type="radio" name="colorRadio" value="@color">
+                    <input class="form-check-input my-radio me-1" type="radio" name="colorRadio" value="@((int)color)">
                     <div class="border border-1 color-square-div" style="background: @color"></div>
                 </div>
             }
@@ -67,7 +67,7 @@
 
     <div class="mt-4 mb-5 mx-5 w-100">
         <div class="d-flex">
-            <input type="email" class="form-control w-25" placeholder="Enter your search shoes">
+            <input id="searchTextId" type="text" class="form-control w-25" placeholder="Enter your search shoes">
             <div class="dropdown mx-4">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Dropdown button

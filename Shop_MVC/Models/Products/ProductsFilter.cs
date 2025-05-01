@@ -1,9 +1,12 @@
-﻿namespace Shop_MVC.Models.Products
+﻿using Shop_MVC.Entities.Enums;
+
+namespace Shop_MVC.Models.Products
 {
     public class ProductsFilter
     {
-        public string? Category { get; set; }
-        public string? Company { get; set; }
-        public string? Color { get; set; }
+        public Category? Category { get; set; }
+        public Company? Company { get; set; }
+        public Color? Color { get; set; }
+        public string? SearchText { get; set; }
     }
 }
