@@ -2,4 +2,5 @@
 2) Projekt mvc + repozytorium. ✔
 3) Klasy db context'u. ✔
 4) Db Seeder. ✔
-5) Wyświetlanie produktów (zakładka Products).
+5) Wyświetlanie produktów (zakładka Products). ✔
+6) Filtrowanie produktów po kategorii (comboBox).

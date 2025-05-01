@@ -1,8 +1,7 @@
 Aplikacja obsługuje dwie klasy użytkowników: użytkownik i administrator.
 - Niezalogowany użytkownik może przeglądać produkty oraz ich komentarze.
 - Niezalogowany użytkownik może filtrować produkty wg ich kategori, marki, i koloru. Może sortować produkty wg ich ceny (malejąco/rosnąco).
-- Niezalogowany użytkonik może szukać dany produkt wpisując jego nazwe w wyszukiwarke.
-- Niezalogowany użytkownik może przeglądać komentarze do danego produktu.
+- Niezalogowany użytkonik filtrować produkty wpisując nazwe produktu wyszukiwarke.
 - Zalogowany użytkownik może dodawać komentarze pod produktami.
 - Zalogowany użytkownik może dodawać produkty do koszyka (dowolna ilość ale nie większa niż ilość danego produktu).
 - Zalogowany użytkownik może kupić produkty z koszyka, jeżeli ma na to środki oraz jeżeli są jeszcze dostępne.

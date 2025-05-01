@@ -11,7 +11,7 @@
         <h3 class="mt-4">Category</h3>
         <div class="mt-1" style="font-size: large">
             <div>
-                <input class="form-check-input my-radio" type="radio" name="categoryRadio" checked>
+                <input class="form-check-input my-radio" type="radio" name="categoryRadio" checked value="All">
                 <label>
                     All
                 </label>
@@ -19,7 +19,7 @@
             @foreach (var category in Model.Categories)
             {
                 <div>
-                    <input class="form-check-input my-radio" type="radio" name="categoryRadio">
+                    <input class="form-check-input my-radio" type="radio" name="categoryRadio" value="@category">
                     <label>
                         @category
                     </label>
@@ -66,25 +66,27 @@
     </div>
 
     <div class="mt-4 mb-5 mx-5 w-100">
-        <input type="email" class="form-control w-25" placeholder="Enter your search shoes">
-        <div class="product-grid">
-            @foreach (var product in Model.Products)
-            {
-                <div class="product-cart">
-                    <img src="@product.Img" alt="@product.Name" class="product-image" />
-                    <h5 style="text-align: center">@product.Name</h5>
-                    <h5 class="text-center fw-bold">$@product.Price</h5>
-                    <div class="product-cart-quantity-color">
-                        <div class="d-flex me-2">
-                            <div class="me-1">Left:</div>
-                            <div class="fw-bold">@product.Quantity</div>
-                        </div>
-                        <div class="border border-1 color-square-div" style="background-color: @product.Color;"></div>
-                    </div>
-                    <button class="m-3 w-50 align-self-center btn btn-primary">Add to Cart</button>
-                </div>
-            }
+        <div class="d-flex">
+            <input type="email" class="form-control w-25" placeholder="Enter your search shoes">
+            <div class="dropdown mx-4">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown button
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="products-container">
+            @await Html.PartialAsync("_ProductsPartial", Model.Products)
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/products.js"></script>
+}
 

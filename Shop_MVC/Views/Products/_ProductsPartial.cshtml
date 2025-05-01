@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Shop_MVC.Entities.Product>
+
+<div class="product-grid">
+    @foreach (var product in Model)
+    {
+        <div class="product-cart">
+            <img src="@product.Img" alt="@product.Name" class="product-image" />
+            <h5 style="text-align: center">@product.Name</h5>
+            <h5 class="text-center fw-bold">$@product.Price</h5>
+            <div class="product-cart-quantity-color">
+                <div class="d-flex me-2">
+                    <div class="me-1">Left:</div>
+                    <div class="fw-bold">@product.Quantity</div>
+                </div>
+                <div class="border border-1 color-square-div" style="background-color: @product.Color;"></div>
+            </div>
+            <button class="m-3 w-50 align-self-center btn btn-primary">Add to Cart</button>
+        </div>
+    }
+</div>

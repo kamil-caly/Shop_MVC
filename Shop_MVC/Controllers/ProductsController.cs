@@ -30,5 +30,12 @@ namespace Shop_MVC.Controllers
 
             return View(model);
         }
+
+        [HttpPost]
+        public IActionResult Filter([FromBody] ProductsFilter filter)
+        {
+            var filteredProducts = productService.GetFilteredProducts(filter);
+            return PartialView("_ProductsPartial", filteredProducts);
+        }
     }
 }
