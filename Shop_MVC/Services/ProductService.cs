@@ -1,6 +1,7 @@
 ﻿using Shop_MVC.Entities;
 using Shop_MVC.Entities.Enums;
 using Shop_MVC.Models.Products;
+using Shop_MVC.Models.Products.Enums;
 using Shop_MVC.Services.Interfaces;
 
 namespace Shop_MVC.Services
@@ -49,6 +50,13 @@ namespace Shop_MVC.Services
             if (!string.IsNullOrEmpty(filter.SearchText))
             {
                 query = query.Where(q => q.Name.ToLower().Contains(filter.SearchText.ToLower()));
+            }
+
+            // price sorting
+            if (filter.PriceSort != null)
+            {
+                if (filter.PriceSort == Sort.Desc) query = query.OrderByDescending(q => q.Price);
+                else query = query.OrderBy(q => q.Price);
             }
 
             return query.ToList();

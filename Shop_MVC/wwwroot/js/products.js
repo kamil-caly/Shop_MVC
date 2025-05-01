@@ -5,8 +5,14 @@
 
     const searchTxt = $('input#searchTextId').val();
 
+    const priceSortTxt = $('#sortDropdownBtn').text();
+    let priceSort = null;
+    if (priceSortTxt.includes('Asc')) priceSort = 1;
+    else if (priceSortTxt.includes('Desc')) priceSort = 0;
+
     let result = {
-        SearchText: searchTxt
+        SearchText: searchTxt,
+        PriceSort: priceSort
     };
     if (category != 'All') result.Category = Number(category);
     if (company != 'All') result.Company = Number(company);
@@ -39,6 +45,12 @@ $(function () {
     });
 
     $('input#searchTextId').on('input', function () {
+        updateProducts();
+    });
+
+    $('.dropdown-menu .dropdown-item').on('click', function () {
+        const selectedText = $(this).text();
+        $('#sortDropdownBtn').text(selectedText);
         updateProducts();
     });
 });

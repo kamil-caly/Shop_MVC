@@ -69,13 +69,20 @@
         <div class="d-flex">
             <input id="searchTextId" type="text" class="form-control w-25" placeholder="Enter your search shoes">
             <div class="dropdown mx-4">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown button
+                <button 
+                    id="sortDropdownBtn" 
+                    style="width: 150px" 
+                    class="btn btn-secondary dropdown-toggle d-flex justify-content-between align-items-center" 
+                    type="button" 
+                    data-bs-toggle="dropdown" 
+                    aria-expanded="false"
+                >
+                    ---
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li><a class="dropdown-item">---</a></li>
+                    <li><a class="dropdown-item">Price (Asc)</a></li>
+                    <li><a class="dropdown-item">Price (Desc)</a></li>
                 </ul>
             </div>
         </div>
