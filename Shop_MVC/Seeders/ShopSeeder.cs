@@ -21,6 +21,12 @@ namespace Shop_MVC.Seeders
                     dbContext.SaveChanges();
                 }
 
+                if (!dbContext.Comments.Any())
+                {
+                    dbContext.Comments.AddRange(GetComments());
+                    dbContext.SaveChanges();
+                }
+
                 if (!dbContext.Roles.Any())
                 {
                     dbContext.Roles.AddRange(GetRoles());
@@ -55,7 +61,6 @@ namespace Shop_MVC.Seeders
                 new Product { Name = "Chunky High Heel", Img = "https://m.media-amazon.com/images/I/61bncQ44yML._AC_UX695_.jpg", Price = 150, Color = Color.Black, Company = Company.Vans, Category = Category.Heels, Quantity = 110 },
                 new Product { Name = "Slip On Stiletto High Heel", Img = "https://m.media-amazon.com/images/I/71czu7WgGuL._AC_UY695_.jpg", Price = 150, Color = Color.Black, Company = Company.Puma, Category = Category.Heels, Quantity = 180 },
                 new Product { Name = "DREAM PAIRS Court Shoes", Img = "https://m.media-amazon.com/images/I/61men05KRxL._AC_UY625_.jpg", Price = 210, Color = Color.Red, Company = Company.Nike, Category = Category.Heels, Quantity = 190 },
-                new Product { Name = "Nike Air Vapormax Plus", Img = "https://m.media-amazon.com/images/I/519MRhRKGFL._AC_UX575_.jpg", Price = 110, Color = Color.Red, Company = Company.Nike, Category = Category.Sneakers, Quantity = 280 },
                 new Product { Name = "Low Mid Block Heels", Img = "https://m.media-amazon.com/images/I/51PGWTXgf-L._AC_UY625_.jpg", Price = 200, Color = Color.Black, Company = Company.Nike, Category = Category.Heels, Quantity = 100 },
                 new Product { Name = "Chunky High Heel", Img = "https://m.media-amazon.com/images/I/616sA5XUKtL._AC_UY675_.jpg", Price = 230, Color = Color.Black, Company = Company.Adidas, Category = Category.Heels, Quantity = 170 },
                 new Product { Name = "Amore Fashion Stilettos", Img = "https://m.media-amazon.com/images/I/71h5+MbEK7L._AC_UY625_.jpg", Price = 240, Color = Color.White, Company = Company.Adidas, Category = Category.Heels, Quantity = 190 },
@@ -64,6 +69,21 @@ namespace Shop_MVC.Seeders
             };
 
             return products;
+        }
+
+        private IEnumerable<Comment> GetComments()
+        {
+            // początkowo 3 testowe komentarze na pierwszym produkcie
+            var firstProcuctId = dbContext.Products.First().Id;
+
+            var comments = new List<Comment>
+            {
+                new Comment { Author = "Unexist user 1", Text = "Great product!", CreatedAt = DateTime.Now, Rating = 4, ProductId = firstProcuctId },
+                new Comment { Author = "Unexist user 2", Text = "Not bad, but could be better.", CreatedAt = DateTime.Now, Rating = 2, ProductId = firstProcuctId },
+                new Comment { Author = "Unexist user 3", Text = "I love these shoes!", CreatedAt = DateTime.Now, Rating = 5, ProductId = firstProcuctId }
+            };
+
+            return comments;
         }
 
         private IEnumerable<Role> GetRoles()

@@ -1,4 +1,5 @@
-﻿using Shop_MVC.Entities;
+﻿using MongoDB.Bson;
+using Shop_MVC.Entities;
 using Shop_MVC.Models.Products;
 
 namespace Shop_MVC.Services.Interfaces
@@ -7,5 +8,6 @@ namespace Shop_MVC.Services.Interfaces
     {
         IEnumerable<Product> GetProducts();
         IEnumerable<Product> GetFilteredProducts(ProductsFilter? filter);
+        ProductDetailsViewModel GetProductsWithComments(string id);
     }
 }

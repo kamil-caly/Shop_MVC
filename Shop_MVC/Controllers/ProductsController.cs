@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 using Shop_MVC.Entities.Enums;
 using Shop_MVC.Models.Products;
 using Shop_MVC.Services;
@@ -36,6 +37,24 @@ namespace Shop_MVC.Controllers
         {
             var filteredProducts = productService.GetFilteredProducts(filter);
             return PartialView("_ProductsPartial", filteredProducts);
+        }
+
+        [Route("Products/Details/{Id}")]
+        public IActionResult Details(string Id)
+        {
+            try
+            {
+                var model = productService.GetProductsWithComments(Id);
+                return View(model);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }

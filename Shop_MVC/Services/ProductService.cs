@@ -1,4 +1,6 @@
-﻿using Shop_MVC.Entities;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using MongoDB.Bson;
+using Shop_MVC.Entities;
 using Shop_MVC.Entities.Enums;
 using Shop_MVC.Models.Products;
 using Shop_MVC.Models.Products.Enums;
@@ -60,6 +62,33 @@ namespace Shop_MVC.Services
             }
 
             return query.ToList();
+        }
+
+        public ProductDetailsViewModel GetProductsWithComments(string id)
+        {
+            ObjectId objId = ObjectId.Empty;
+            if (ObjectId.TryParse(id, out ObjectId objectId))
+            {
+                objId = objectId;
+            }
+            else
+            {
+                throw new Exception(id + " is not a valid ObjectId.");
+            }
+
+            var product = dbCtx.Products.FirstOrDefault(p => p.Id == objId);
+            if (product == null)
+            {
+                throw new KeyNotFoundException($"Product with id {id} not found.");
+            }
+
+            List<Comment> comments = dbCtx.Comments.Where(c => c.ProductId == objId).ToList();
+
+            return new ProductDetailsViewModel
+            {
+                Product = product,
+                Comments = comments
+            };
         }
     }
 }

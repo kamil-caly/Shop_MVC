@@ -4,7 +4,9 @@
     @foreach (var product in Model)
     {
         <div class="product-cart">
-            <img src="@product.Img" alt="@product.Name" class="product-image" />
+            <a asp-controller="Products" asp-action="Details" asp-route-id="@product.Id.ToString()">
+                <img src="@product.Img" alt="@product.Name" class="product-image" />
+            </a>
             <h5 style="text-align: center">@product.Name</h5>
             <h5 class="text-center fw-bold">$@product.Price</h5>
             <div class="product-cart-quantity-color">
