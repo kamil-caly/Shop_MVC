@@ -8,4 +8,5 @@
 8) Filtrowanie na podstawie tekstu. ✔
 9) Sortowanie produktów (po cenie). ✔
 10) Dodanie osobnej zakładki Products/Details/id po kliknięciu danego produktu. ✔
-11) Dodanie formularzu rejestracji i logowania użytkowników.
+11) Dodanie formularzu rejestracji i logowania użytkowników. ✔
+12) Utworzenie repo na github i push zmian.
