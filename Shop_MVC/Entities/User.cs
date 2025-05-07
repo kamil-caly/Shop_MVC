@@ -10,7 +10,7 @@ namespace Shop_MVC.Entities
         public string LastName { get; set; } = default!;
         public DateTime? DateOfBirth { get; set; }
         public string PasswordHash { get; set; } = default!;
-        public decimal money { get; set; }
+        public decimal Money { get; set; }
         public ObjectId RoleId { get; set; }
     }
 }
