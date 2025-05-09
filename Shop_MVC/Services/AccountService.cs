@@ -84,5 +84,18 @@ namespace Shop_MVC.Services
         {
             httpContextAccessor.HttpContext!.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme).Wait();
         }
+
+        public decimal GetBalance()
+        {
+            var userId = httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var user = dbCtx.Users.FirstOrDefault(u => u.Id.ToString() == userId);
+
+            if (user == null)
+            {
+                throw new Exception("User not found");
+            }
+
+            return user.Money;
+        }
     }
 }

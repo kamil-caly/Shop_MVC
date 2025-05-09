@@ -7,7 +7,7 @@ namespace Shop_MVC.Services.Interfaces
     {
         RegisterResult Register(RegisterViewModel model);
         LoginResult Login(LoginViewModel model);
-
         void Logout();
+        decimal GetBalance();
     }
 }

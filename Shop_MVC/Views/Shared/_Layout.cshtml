@@ -32,7 +32,10 @@
                             @if (User.Identity?.IsAuthenticated == true)
                             {
                                 <li class="nav-item">
-                                    <span class="nav-link text-dark">Hello, @User.Identity.Name!</span>
+                                    <span class="nav-link text-primary">Hello, @User.Identity.Name!</span>
+                                </li>
+                                <li class="nav-item" id="balance-container">
+                                    <span class="nav-link text-primary">Balance: <span id="user-balance">loading...</span> $</span>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-controller="Account" asp-action="Logout">Logout</a>
@@ -87,6 +90,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/account.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

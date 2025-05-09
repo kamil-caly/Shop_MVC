@@ -9,4 +9,6 @@
 9) Sortowanie produktów (po cenie). ✔
 10) Dodanie osobnej zakładki Products/Details/id po kliknięciu danego produktu. ✔
 11) Dodanie formularzu rejestracji i logowania użytkowników. ✔
-12) Utworzenie repo na github i push zmian.
+12) Utworzenie repo na github i push zmian. ✔
+13) Wyświtlanie stanu konta zalogowanego użytkownika. ✔
+14) Dodanie widoku 'Basket' z produktami dodanymi do koszyka.

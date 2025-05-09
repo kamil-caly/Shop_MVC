@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Shop_MVC.Models.Account;
 using Shop_MVC.Models.Account.Enums;
 using Shop_MVC.Services.Interfaces;
@@ -73,6 +74,23 @@ namespace Shop_MVC.Controllers
             TempData["ToastType"] = "success";
 
             return RedirectToAction("Index", "Products");
+        }
+
+        [Authorize]
+        [HttpGet]
+        public decimal GetBalance()
+        {
+            try
+            {
+                var balance = accountService.GetBalance();
+                return balance;
+            }
+            catch (Exception ex)
+            {
+                TempData["ToastMessage"] = ex.Message;
+                TempData["ToastType"] = "error";
+                return -1;
+            }
         }
     }
 }
