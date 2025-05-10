@@ -12,5 +12,5 @@
 12) Utworzenie repo na github i push zmian. ✔
 13) Wyświtlanie stanu konta zalogowanego użytkownika. ✔
 14) Zalogowany użytkownik po wciśnięciu 'add to cart' dodaje produkty do 'koszyka' (localstorage). ✔
-15) To samo co punkt wyżej ale na zakładce 'Products/Details/id'.
+15) To samo co punkt wyżej ale na zakładce 'Products/Details/id'. ✔
 15) Dodanie widoku 'Basket' z produktami dodanymi do koszyka.

@@ -44,7 +44,7 @@ function updateProducts() {
 
 // product: Shop_MVC.Entities.Product, amount: +1 or -1
 function addToCart(product, amount) {
-    //debugger;
+    debugger;
     const basket = localStorage.getItem(shop_mvc_basket);
     if (!basket) {
         if (amount === -1) return;
@@ -76,13 +76,14 @@ function addToCart(product, amount) {
 }
 
 
-function updateProductViewBasedOnUserBasket() {
+export function updateProductViewBasedOnUserBasket() {
+    //debugger;
     const basket = localStorage.getItem(shop_mvc_basket);
     if (!basket) return;
 
     const basketProducts = JSON.parse(basket);
     basketProducts.forEach(product => {
-        //debugger;
+        debugger;
         let display_btn = "none";
         let display_div = "flex";
         if (product.Quantity == 0) {
@@ -93,15 +94,20 @@ function updateProductViewBasedOnUserBasket() {
             display_btn = "block";
             display_div = "none";
         }
-        $(`#add_to_cart_btn_${product.Id}`).css("display", display_btn);
-        $(`#add_to_cart_div_${product.Id}`).css("display", display_div);
-        $(`#add_to_cart_div_${product.Id}`).children('div').text(product.Quantity);
+
+        debugger;
+        const btn = $(`.add_to_cart_btn_${product.Id}`);
+        const div = $(`.add_to_cart_div_${product.Id}`);
+
+        $(`.add_to_cart_btn_${product.Id}`).css("display", display_btn);
+        $(`.add_to_cart_div_${product.Id}`).css("display", display_div);
+        $(`.add_to_cart_div_${product.Id}`).children('div').text(product.Quantity);
     });
 }
 
 function showAddToCartBtnOnly(productId) {
-    $(`#add_to_cart_btn_${productId}`).css("display", "block");
-    $(`#add_to_cart_div_${productId}`).css("display", "none");
+    $(`.add_to_cart_btn_${productId}`).css("display", "block");
+    $(`.add_to_cart_div_${productId}`).css("display", "none");
 }
 
 
@@ -122,3 +128,5 @@ $(function () {
 
     updateProductViewBasedOnUserBasket();
 });
+
+window.addToCart = addToCart;

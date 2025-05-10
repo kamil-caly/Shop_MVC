@@ -1,4 +1,5 @@
 ﻿@model Shop_MVC.Models.Products.ProductDetailsViewModel
+@using System.Text.Json
 
 @{
     ViewData["Title"] = "Details";
@@ -23,7 +24,29 @@
             </div>
             <p class="mt-3">Available Stock: <strong>@Model.Product.Quantity</strong></p>
 
-            <button class="btn btn-primary mt-4 px-4">Add to Cart</button>
+            @* <button class="btn btn-primary mt-4 px-4">Add to Cart</button> *@
+            @{
+                var productJson = JsonSerializer.Serialize(new
+                {
+                    Id = Model.Product.Id.ToString(),
+                    Model.Product.Name,
+                    Model.Product.Price,
+                    Model.Product.Quantity,
+                    Model.Product.Color,
+                    Model.Product.Img
+                });
+            }
+            <button onclick="@(User.Identity?.IsAuthenticated == true ? $"addToCart({productJson}, 1)" : "window.location.href='/Account/Login'")"
+                    class="btn btn-primary mt-4 px-4 add_to_cart_btn_@Model.Product.Id.ToString()"
+                    disabled="@(Model.Product.Quantity <= 0)"
+                    aria-disabled="@(Model.Product.Quantity <= 0)">
+                Add to Cart
+            </button>
+            <div class="mt-3 add_to_cart_div_@Model.Product.Id.ToString()" style="display: none">
+                <button class="btn btn-primary fs-4" style="width: 40px" onclick="addToCart(@productJson, -1)">-</button>
+                <div class="mx-3 fw-bold fs-3 align-self-center"></div>
+                <button class="btn btn-primary fs-4" style="width: 40px" onclick="addToCart(@productJson, 1)">+</button>
+            </div>
         </div>
     </div>
 
@@ -64,3 +87,7 @@
         }
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/details.js" type="module"></script>
+}
