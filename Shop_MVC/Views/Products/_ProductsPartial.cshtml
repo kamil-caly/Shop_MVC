@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Shop_MVC.Entities.Product>
+@using System.Text.Json
 
 <div class="product-grid">
     @foreach (var product in Model)
@@ -16,7 +17,28 @@
                 </div>
                 <div class="border border-1 color-square-div" style="background-color: @product.Color;"></div>
             </div>
-            <button class="m-3 w-50 align-self-center btn btn-primary">Add to Cart</button>
+            @{
+                var productJson = JsonSerializer.Serialize(new
+                {
+                    Id = product.Id.ToString(),
+                    product.Name,
+                    product.Price,
+                    product.Quantity,
+                    product.Color,
+                    product.Img
+                });
+            }
+            <button id="add_to_cart_btn_@product.Id.ToString()" onclick="@(User.Identity?.IsAuthenticated == true ? $"addToCart({productJson}, 1)" : "window.location.href='/Account/Login'")"
+                class="m-3 w-50 align-self-center btn btn-primary"
+                disabled="@(product.Quantity <= 0)"
+                aria-disabled="@(product.Quantity <= 0)">
+                    Add to Cart
+            </button>
+            <div class="w-100 justify-content-center mt-3" id="add_to_cart_div_@product.Id.ToString()" style="display: none">
+                <button class="btn btn-primary fs-4" onclick="addToCart(@productJson, -1)">-</button>
+                <div class="mx-3 fw-bold fs-3 align-self-center"></div>
+                <button class="btn btn-primary fs-4" onclick="addToCart(@productJson, 1)">+</button>
+            </div>
         </div>
     }
 </div>

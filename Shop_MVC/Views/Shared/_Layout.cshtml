@@ -32,7 +32,7 @@
                             @if (User.Identity?.IsAuthenticated == true)
                             {
                                 <li class="nav-item">
-                                    <span class="nav-link text-primary">Hello, @User.Identity.Name!</span>
+                                    <span id="user_identity_name_span" class="nav-link text-primary">Hello, @User.Identity.Name!</span>
                                 </li>
                                 <li class="nav-item" id="balance-container">
                                     <span class="nav-link text-primary">Balance: <span id="user-balance">loading...</span> $</span>
