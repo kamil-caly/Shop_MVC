@@ -3,7 +3,7 @@ Aplikacja obsługuje dwie klasy użytkowników: użytkownik i administrator.
 - Niezalogowany użytkownik może filtrować produkty wg ich kategori, marki, i koloru. Może sortować produkty wg ich ceny (malejąco/rosnąco). ✔
 - Niezalogowany użytkonik filtrować produkty wpisując nazwe produktu wyszukiwarke. ✔
 - Zalogowany użytkownik może dodawać komentarze pod produktami.
-- Zalogowany użytkownik może dodawać produkty do koszyka (dowolna ilość ale nie większa niż ilość danego produktu).
+- Zalogowany użytkownik może dodawać produkty do koszyka (dowolna ilość ale nie większa niż ilość danego produktu). ✔
 - Zalogowany użytkownik może kupić produkty z koszyka, jeżeli ma na to środki oraz jeżeli są jeszcze dostępne.
 - Administrator może robić to co zalogowany użytkonik.
 - Administrator może dodawać środki do konta dowolnego użytkownika.
@@ -11,7 +11,7 @@ Aplikacja obsługuje dwie klasy użytkowników: użytkownik i administrator.
 Zakładki:
 1) Products
 2) Products/Details/id
-3) My basket (po zalogowaniu).
-4) My products (po zalogowaniu).
+3) Basket (po zalogowaniu).
+4) MyProducts (po zalogowaniu).
 5) Logout (po zalogowaniu).
 6) Login.

@@ -1,7 +1,7 @@
 ﻿@model Shop_MVC.Models.Basket.BasketViewModel
 @using System.Text.Json
 
-<h1>Your Basket</h1>
+<h1 style="margin-bottom: -16px">Your Basket</h1>
 <div class="product-grid">
     @foreach (var product in Model.Products)
     {
@@ -40,4 +40,4 @@
     }
 </div>
 
-<h1 class="mt-3">Total price: $@Model.TotalPrice</h1>
+<button id="buy_btn" class="mt-3 btn btn-success btn-lg">Buy: $@Model.TotalPrice</button>
