@@ -1,0 +1,13 @@
+﻿#basket-container {
+    margin: 20px;
+}
+
+.basket-product-cart {
+    width: 260px;
+    border: 2px solid lightgray;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    margin: 40px 40px 0 0;
+    padding-bottom: 16px;
+}

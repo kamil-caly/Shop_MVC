@@ -1,0 +1,14 @@
+﻿@model Shop_MVC.Models.Basket.BasketViewModel
+@using System.Text.Json
+
+@{
+    ViewData["Title"] = "Basket";
+}
+
+<div id="basket-container">
+    @await Html.PartialAsync("_BasketPartial", Model)
+</div>
+
+@section Scripts {
+    <script src="~/js/basket.js" type="module"></script>
+}

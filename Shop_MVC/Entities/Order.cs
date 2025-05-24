@@ -8,6 +8,5 @@ namespace Shop_MVC.Entities
         public string UserEmail { get; set; } = default!;
         public decimal TotalPrice { get; set; }
         public DateTime CreatedAt { get; set; }
-        public bool Paid { get; set; }
     }
 }

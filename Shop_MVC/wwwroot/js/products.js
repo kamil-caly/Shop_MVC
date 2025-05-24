@@ -44,7 +44,7 @@ function updateProducts() {
 
 // product: Shop_MVC.Entities.Product, amount: +1 or -1
 function addToCart(product, amount) {
-    debugger;
+    //debugger;
     const basket = localStorage.getItem(shop_mvc_basket);
     if (!basket) {
         if (amount === -1) return;
@@ -72,18 +72,18 @@ function addToCart(product, amount) {
         localStorage.setItem(shop_mvc_basket, JSON.stringify(basketProducts));
     }
 
-    updateProductViewBasedOnUserBasket();
+    updateProductViewBasedOnUserBasket();        
 }
 
 
 export function updateProductViewBasedOnUserBasket() {
-    //debugger;
     const basket = localStorage.getItem(shop_mvc_basket);
-    if (!basket) return;
+    if (!basket) {
+        return;
+    }
 
     const basketProducts = JSON.parse(basket);
     basketProducts.forEach(product => {
-        debugger;
         let display_btn = "none";
         let display_div = "flex";
         if (product.Quantity == 0) {
@@ -95,7 +95,6 @@ export function updateProductViewBasedOnUserBasket() {
             display_div = "none";
         }
 
-        debugger;
         const btn = $(`.add_to_cart_btn_${product.Id}`);
         const div = $(`.add_to_cart_div_${product.Id}`);
 
@@ -103,6 +102,8 @@ export function updateProductViewBasedOnUserBasket() {
         $(`.add_to_cart_div_${product.Id}`).css("display", display_div);
         $(`.add_to_cart_div_${product.Id}`).children('div').text(product.Quantity);
     });
+
+    if (location.pathname.includes('Basket')) getBasket(false);
 }
 
 function showAddToCartBtnOnly(productId) {
