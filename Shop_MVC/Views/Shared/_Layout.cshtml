@@ -70,19 +70,21 @@
     </div>
 
     <!-- Toast Notifies -->
+    <!-- dynamic -->
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <div id="toastContainer" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+    </div>
+
+    <!-- static -->
     <div aria-live="polite" aria-atomic="true" class="position-relative">
         <div class="toast-container position-fixed bottom-0 end-0 p-3">
             @if (TempData["ToastMessage"] != null)
             {
-                var toastType = TempData["ToastType"] ?? "info"; // domyślnie "info"
-
-                <div 
-                    id="customToast"
-                    class="toast align-items-center text-white bg-@toastType border-0 show" 
-                    role="alert"
-                    data-bs-autohide="true"
-                    data-bs-delay="5000"
-                >
+                var toastType = TempData["ToastType"] ?? "info";
+                <div class="toast text-white bg-@toastType border-0 show"
+                     role="alert"
+                     data-bs-autohide="true"
+                     data-bs-delay="5000">
                     <div class="d-flex">
                         <div class="toast-body">
                             @TempData["ToastMessage"]

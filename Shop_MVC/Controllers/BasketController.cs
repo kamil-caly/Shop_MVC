@@ -9,9 +9,11 @@ namespace Shop_MVC.Controllers
     public class BasketController : Controller
     {
         private readonly IBasketService basketService;
-        public BasketController(IBasketService basketService)
+        private readonly IOrderService orderService;
+        public BasketController(IBasketService basketService, IOrderService orderService)
         {
             this.basketService = basketService;
+            this.orderService = orderService;
         }
         public IActionResult Index()
         {
@@ -23,6 +25,43 @@ namespace Shop_MVC.Controllers
         {
             var basket = basketService.GetBasket(basketProducts);
             return PartialView("Index", basket);
+        }
+
+        [HttpPost]
+        public IActionResult Buy([FromBody] IEnumerable<BasketProductLocalStorage> basketProducts)
+        {
+            bool result = false;
+
+            try
+            {
+                result = orderService.Buy(basketProducts);
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    success = false,
+                    message = ex.Message,
+                    type = "danger"
+                });
+            }
+
+            if (result)
+            {
+                return Json(new
+                {
+                    success = true,
+                    message = "Purchase Completed",
+                    type = "success"
+                });
+            }
+
+            return Json(new
+            {
+                success = false,
+                message = "Something went wrong",
+                type = "danger"
+            });
         }
     }
 }

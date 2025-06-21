@@ -28,12 +28,16 @@ function buy() {
 
         $.ajax({
             type: 'POST',
-            url: '/Order/Buy',
+            url: '/Basket/Buy',
             contentType: 'application/json',
             data: JSON.stringify(basketProducts),
-            success: function () {
-                //window.location.href = '/myProducts';
-                alert('success');
+            success: function (res) {
+                if (res.success) {
+                    localStorage.removeItem(shop_mvc_basket);
+                    window.location.reload();
+                }
+
+                showToast(res);
             },
             error: function (xhr, status, error) {
                 console.error('Error during purchasing:', error);

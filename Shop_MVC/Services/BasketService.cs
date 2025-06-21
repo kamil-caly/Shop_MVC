@@ -18,6 +18,8 @@ namespace Shop_MVC.Services
             var result = new BasketViewModel();
             result.Products = new List<BasketProduct>();
 
+            if (basketProducts == null || !basketProducts.Any()) return result;
+
             var dbProducts = dbCtx.Products
                 .Where(p => basketProducts.Select(bp => bp.Id).ToList().Contains(p.Id.ToString()))
                 .ToList();
