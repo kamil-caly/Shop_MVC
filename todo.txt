@@ -15,4 +15,5 @@
 15) To samo co punkt wyżej ale na zakładce 'Products/Details/id'. ✔
 15) Dodanie widoku 'Basket' z produktami dodanymi do koszyka. ✔
 16) Dodanie możliwości zakupu produktów z koszyka (przycisk 'buy'). Po zakupie odpowiedni wpis dodany na bazę. ✔
-17) Dodawanie $$$ przez administratora dla wybranego użytkownika.
+17) Dodawanie $$$ przez administratora dla wybranego użytkownika. ✔
+18) Możliwość dodawania komentarzy pod produktami.

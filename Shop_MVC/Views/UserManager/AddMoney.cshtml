@@ -1,0 +1,50 @@
+﻿@model Shop_MVC.Models.UserManager.UserManagerViewModel
+
+@{
+    ViewData["Title"] = "Add Money";
+}
+
+<h1>Add Money</h1>
+
+<div class="container mt-4">
+    <form asp-action="AddMoney" method="post">
+        @* <input type="hidden" asp-for="Email" />
+        <div class="mb-3">
+            <label asp-for="Amount" class="form-label">Amount to Add</label>
+            <input asp-for="Amount" class="form-control" />
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div> *@
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label">Email</label>
+            <input asp-for="Email" class="form-control" readonly />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="FirstName" class="form-label">First Name</label>
+            <input asp-for="FirstName" class="form-control" readonly />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="LastName" class="form-label">Last Name</label>
+            <input asp-for="LastName" class="form-control" readonly />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="DateOfBirth" class="form-label">Date Of Birth</label>
+            <input asp-for="DateOfBirth" class="form-control" readonly />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Role" class="form-label">Role</label>
+            <input asp-for="Role" class="form-control" readonly />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Money" class="form-label">Money</label>
+            <input asp-for="Money" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Money</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

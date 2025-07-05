@@ -35,7 +35,8 @@ namespace Shop_MVC.Services
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                     new Claim(ClaimTypes.Name, user.FirstName + " " + user.LastName),
-                    new Claim(ClaimTypes.Email, user.Email)
+                    new Claim(ClaimTypes.Email, user.Email),
+                    new Claim(ClaimTypes.Role, dbCtx.Roles.FirstOrDefault(r => r.Id == user.RoleId)?.Name ?? "User")
                 };
 
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
