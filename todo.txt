@@ -17,3 +17,4 @@
 16) Dodanie możliwości zakupu produktów z koszyka (przycisk 'buy'). Po zakupie odpowiedni wpis dodany na bazę. ✔
 17) Dodawanie $$$ przez administratora dla wybranego użytkownika. ✔
 18) Możliwość dodawania komentarzy pod produktami.
+19) Przeglądanie produktów zakupionych przez danego użytkownika.
